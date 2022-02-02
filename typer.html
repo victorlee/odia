@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Odia typer</title>
+<meta charset="utf-8">
+
+    <script type="text/javascript">
+	  
+var conversion = {
+"k": "କ",
+"kh": "ଖ",
+"g": "ଗ",
+"gh": "ଘ",
+"ng": "ଙ",
+
+"c": "ଚ",
+"ch": "ଛ",
+"j": "ଜ",
+"jh": "ଝ",
+"ny": "ଞ",
+
+"T": "ଟ",
+"Th": "ଠ",
+"D": "ଡ",
+"Dh": "ଢ",
+"N": "ଣ",
+
+"t": "ତ",
+"th": "ଥ",
+"d": "ଦ",
+"dh": "ଧ",
+"n": "ନ",
+
+"p": "ପ",
+"ph": "ଫ",
+"b": "ବ",
+"bh": "ଭ",
+"m": "ମ",
+
+"h": "ହ",
+"y": "ଯ",
+"r": "ର",
+"l": "ଲ",
+"v": "ୱ",
+"sh": "ଶ",
+"S": "ଷ",
+"s": "ସ",
+
+"M": "ଂ",
+"H": "ଃ",
+"C": "ଁ",
+"q": "୍",
+"a": "&#8203;",
+"aa": "ା",
+"i": "ି",
+"ii": "ୀ",
+"u": "ୁ",
+"uu": "ୂ",
+"R": "ୃ",
+"RR": "ୄ",
+"L": "ୢ",
+"LL": "ୣ",
+"e": "େ",
+"ai": "ୈ",
+"o": "ୋ",
+"au": "ୌ",
+"qa": "ଅ",
+"qaa": "ଆ",
+"qi": "ଇ",
+"qii": "ଈ",
+"qu": "ଉ",
+"quu": "ଊ",
+"qR": "ଋ",
+"qRR": "ୠ",
+"qL": "ଌ",
+"qLL": "ୡ",
+"qe": "ଏ",
+"qai": "ଐ",
+"qo": "ଓ",
+"qau": "ଔ",
+
+"1": "୧",
+"2": "୨",
+"3": "୩",
+"4": "୪",
+"5": "୫",
+"6": "୬",
+"7": "୭",
+"8": "୮",
+"9": "୯",
+"0": "୦",
+
+".": "।",
+"..": "॥",
+        };
+
+ var maxLength = Object.keys(conversion)
+    .reduce((a, b) => a.length > b.length ? a : b) // get the longest word
+    .length; // and it's length
+  
+  function convert (text) {
+    var converted = "";
+    var cur = 0;
+    while (cur < text.length) {
+      var testedPhoneme;
+      var symbol = undefined;
+      for (var length = maxLength; length > 0; length --) {
+        testedPhoneme = text.substr(cur, length);
+        if (conversion[testedPhoneme]) {
+          symbol = conversion[testedPhoneme];
+          break; // stop the loop
+        }
+      }
+      if (symbol) {
+        converted += symbol;
+        cur += testedPhoneme.length;
+      }
+      else {
+        converted += text[cur]
+        cur++;
+      }
+    }
+    return converted
+  }
+
+  function onInputTextChange(txt) {
+    var outputTextareaElem = document.getElementById("output_textarea");
+    var div = document.createElement("div");
+    var outputHtmlEntities = convert(txt);
+    div.innerHTML = outputHtmlEntities;
+    outputTextareaElem.value = div.innerText;
+  }
+
+
+        function select() {
+          const input = document.getElementById('input_textarea');
+          input.focus();
+          input.select();
+        }   
+        function copytext() {
+          var copyText = document.getElementById("output_textarea");
+          copyText.select();
+          copyText.setSelectionRange(0, 99999)
+          document.execCommand("copy");
+        }
+
+    </script>
+    
+<style>
+html {
+font-family:arial
+}
+table {
+  border-collapse: collapse;
+  width: 90%;
+}
+td, th {
+  border: 1px solid #AAA;
+  text-align: center;
+  padding: 1px;
+}
+textarea {
+	font-size: 16pt;
+	font-family: Arial;
+    width: 96%;
+} 
+.note {
+  border: 1px solid #DDD;
+  width: 30%;
+  text-align: left;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+</style>
+
+
+</head>
+<body>  
+
+<body>  
+
+<center><h1 class="text-center">Odia typer</h1>
+
+<table>
+<thead>
+<tr>
+<th>	
+<button onclick="select('input_textarea')">Select all</button>
+<button onclick="document.getElementById('input_textarea').value = ''">Clear</button>
+</th>
+<th>
+<button onclick="copytext()">Copy text</button>
+
+</th>
+<th style="width: 200px">Conversion table</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<textarea
+id="input_textarea"
+autofocus=""
+placeholder="Input text here"
+rows="10"
+oninput="onInputTextChange(this.value)"></textarea>    
+</td>
+<td>
+<textarea rows="10" placeholder="output" id="output_textarea"></textarea>    
+</td>
+<td>
+
+<center>
+<div style="overflow-y: scroll; height:250px; width:170px">
+
+
+<table>
+<thead>
+<tr>
+<th>in.</th>
+<th>out.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>k</td>
+<td>କ</td>
+</tr>
+<tr>
+<td>kh</td>
+<td>ଖ</td>
+</tr>
+<tr>
+<td>g</td>
+<td>ଗ</td>
+</tr>
+<tr>
+<td>gh</td>
+<td>ଘ</td>
+</tr>
+<tr>
+<td>ng</td>
+<td>ଙ</td>
+</tr>
+<tr>
+<td>c</td>
+<td>ଚ</td>
+</tr>
+<tr>
+<td>ch</td>
+<td>ଛ</td>
+</tr>
+<tr>
+<td>j</td>
+<td>ଜ</td>
+</tr>
+<tr>
+<td>jh</td>
+<td>ଝ</td>
+</tr>
+<tr>
+<td>ny</td>
+<td>ଞ</td>
+</tr>
+<tr>
+<td>T</td>
+<td>ଟ</td>
+</tr>
+<tr>
+<td>Th</td>
+<td>ଠ</td>
+</tr>
+<tr>
+<td>D</td>
+<td>ଡ</td>
+</tr>
+<tr>
+<td>Dh</td>
+<td>ଢ</td>
+</tr>
+<tr>
+<td>N</td>
+<td>ଣ</td>
+</tr>
+<tr>
+<td>t</td>
+<td>ତ</td>
+</tr>
+<tr>
+<td>th</td>
+<td>ଥ</td>
+</tr>
+<tr>
+<td>d</td>
+<td>ଦ</td>
+</tr>
+<tr>
+<td>dh</td>
+<td>ଧ</td>
+</tr>
+<tr>
+<td>n</td>
+<td>ନ</td>
+</tr>
+<tr>
+<td>p</td>
+<td>ପ</td>
+</tr>
+<tr>
+<td>ph</td>
+<td>ଫ</td>
+</tr>
+<tr>
+<td>b</td>
+<td>ବ</td>
+</tr>
+<tr>
+<td>bh</td>
+<td>ଭ</td>
+</tr>
+<tr>
+<td>m</td>
+<td>ମ</td>
+</tr>
+<tr>
+<td>h</td>
+<td>ହ</td>
+</tr>
+<tr>
+<td>y</td>
+<td>ଯ</td>
+</tr>
+<tr>
+<td>r</td>
+<td>ର</td>
+</tr>
+<tr>
+<td>l</td>
+<td>ଲ</td>
+</tr>
+<tr>
+<td>v</td>
+<td>ୱ</td>
+</tr>
+<tr>
+<td>sh</td>
+<td>ଶ</td>
+</tr>
+<tr>
+<td>S</td>
+<td>ଷ</td>
+</tr>
+<tr>
+<td>s</td>
+<td>ସ</td>
+</tr>
+<tr>
+<td>M</td>
+<td>ଂ</td>
+</tr>
+<tr>
+<td>H</td>
+<td>ଃ</td>
+</tr>
+<tr>
+<td>C</td>
+<td>ଁ</td>
+</tr>
+<tr>
+<td>q</td>
+<td>୍</td>
+</tr>
+<tr>
+<td>a</td>
+<td>&#8203;</td>
+</tr>
+<tr>
+<td>aa</td>
+<td>ା</td>
+</tr>
+<tr>
+<td>i</td>
+<td>ି</td>
+</tr>
+<tr>
+<td>ii</td>
+<td>ୀ</td>
+</tr>
+<tr>
+<td>u</td>
+<td>ୁ</td>
+</tr>
+<tr>
+<td>uu</td>
+<td>ୂ</td>
+</tr>
+<tr>
+<td>R</td>
+<td>ୃ</td>
+</tr>
+<tr>
+<td>RR</td>
+<td>ୄ</td>
+</tr>
+<tr>
+<td>L</td>
+<td>ୢ</td>
+</tr>
+<tr>
+<td>LL</td>
+<td>ୣ</td>
+</tr>
+<tr>
+<td>e</td>
+<td>େ</td>
+</tr>
+<tr>
+<td>ai</td>
+<td>ୈ</td>
+</tr>
+<tr>
+<td>o</td>
+<td>ୋ</td>
+</tr>
+<tr>
+<td>au</td>
+<td>ୌ</td>
+</tr>
+<tr>
+<td>qa</td>
+<td>ଅ</td>
+</tr>
+<tr>
+<td>qaa</td>
+<td>ଆ</td>
+</tr>
+<tr>
+<td>qi</td>
+<td>ଇ</td>
+</tr>
+<tr>
+<td>qii</td>
+<td>ଈ</td>
+</tr>
+<tr>
+<td>qu</td>
+<td>ଉ</td>
+</tr>
+<tr>
+<td>quu</td>
+<td>ଊ</td>
+</tr>
+<tr>
+<td>qR</td>
+<td>ଋ</td>
+</tr>
+<tr>
+<td>qRR</td>
+<td>ୠ</td>
+</tr>
+<tr>
+<td>qL</td>
+<td>ଌ</td>
+</tr>
+<tr>
+<td>qLL</td>
+<td>ୡ</td>
+</tr>
+<tr>
+<td>qe</td>
+<td>ଏ</td>
+</tr>
+<tr>
+<td>qai</td>
+<td>ଐ</td>
+</tr>
+<tr>
+<td>qo</td>
+<td>ଓ</td>
+</tr>
+<tr>
+<td>qau</td>
+<td>ଔ</td>
+</tr>
+<tr>
+<td>1</td>
+<td>୧</td>
+</tr>
+<tr>
+<td>2</td>
+<td>୨</td>
+</tr>
+<tr>
+<td>3</td>
+<td>୩</td>
+</tr>
+<tr>
+<td>4</td>
+<td>୪</td>
+</tr>
+<tr>
+<td>5</td>
+<td>୫</td>
+</tr>
+<tr>
+<td>6</td>
+<td>୬</td>
+</tr>
+<tr>
+<td>7</td>
+<td>୭</td>
+</tr>
+<tr>
+<td>8</td>
+<td>୮</td>
+</tr>
+<tr>
+<td>9</td>
+<td>୯</td>
+</tr>
+<tr>
+<td>0</td>
+<td>୦</td>
+</tr>
+<tr>
+<td>.</td>
+<td>।</td>
+</tr>
+<tr>
+<td>..</td>
+<td>॥</td>
+</tr>
+</tbody>
+</table>
+
+
+
+</div>
+</center>
+
+</td>
+</tr>
+</tbody>
+</table>
+</center>
+
+</body>
+</html>
